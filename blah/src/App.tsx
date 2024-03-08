@@ -2,6 +2,7 @@ import React from "react";
 import "./App.css";
 import jsonData from "./CollegeBasketballTeams.json";
 
+// Defining what each basketball team
 interface TeamProps {
   school: string;
   name: string;
@@ -9,12 +10,16 @@ interface TeamProps {
   state: string;
 }
 
+// The shape of the JSON data containing basketball teams
 interface TeamData {
   teams: TeamProps[];
 }
 
+// Extracting the teams array from the imported JSON data
 const basketballTeams: TeamProps[] = (jsonData as TeamData).teams;
 
+
+// Component to display a single basketball team
 class Team extends React.Component<TeamProps> {
   render() {
     const { school, name, city, state } = this.props;
@@ -31,6 +36,8 @@ class Team extends React.Component<TeamProps> {
   }
 }
 
+  
+// Component to render a list of basketball teams
 function TeamList() {
   return (
     <div className="team-list">
@@ -41,6 +48,7 @@ function TeamList() {
   );
 }
 
+// Main App component
 function App() {
   return (
     <div className="App">
